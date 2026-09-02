@@ -26,23 +26,23 @@ body {
 button, input { font: inherit; }
 button { cursor: pointer; }
 
-.app-shell { width: min(100% - 48px, 1080px); margin: 0 auto; padding: 32px 0 38px; }
+.app-shell { width: min(100% - 48px, 1080px); margin: 0 auto; padding: 32px 0 38px; animation: page-in 650ms cubic-bezier(0.22, 1, 0.36, 1) both; }
 .topbar, .intro, .list-toolbar, .footer-note { display: flex; align-items: center; justify-content: space-between; }
-.topbar { border-bottom: 1px solid var(--line); padding-bottom: 18px; }
+.topbar { border-bottom: 1px solid var(--line); padding-bottom: 18px; animation: slide-in 500ms 80ms cubic-bezier(0.22, 1, 0.36, 1) both; }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-size: 15px; font-weight: 800; letter-spacing: 0.02em; }
 .brand-mark { display: grid; place-items: center; width: 28px; height: 28px; color: var(--white); background: var(--cobalt); border-radius: 50%; font-family: "DM Mono", monospace; font-size: 14px; }
 .date-stamp, .eyebrow, .footer-note, .filter-tab, .clear-button { font-family: "DM Mono", monospace; }
 .date-stamp { margin: 0; color: var(--muted); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
-.intro { align-items: flex-end; padding: 76px 0 58px; }
+.intro { align-items: flex-end; padding: 76px 0 58px; animation: slide-in 600ms 160ms cubic-bezier(0.22, 1, 0.36, 1) both; }
 .eyebrow { margin: 0 0 14px; color: var(--coral); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
 h1 { margin: 0; font-size: clamp(52px, 8vw, 92px); line-height: 0.92; letter-spacing: -0.065em; }
 h1 em { color: var(--cobalt); font-family: Georgia, serif; font-weight: 400; letter-spacing: -0.08em; }
 .progress-note { display: flex; align-items: center; gap: 14px; padding-bottom: 5px; }
 .progress-note p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
 .progress-note strong { color: var(--ink); font-size: 13px; }
-.progress-ring { display: grid; place-items: center; width: 66px; height: 66px; border: 5px solid var(--paper-deep); border-top-color: var(--cobalt); border-right-color: var(--cobalt); border-radius: 50%; color: var(--cobalt); font-family: "DM Mono", monospace; font-size: 12px; transition: transform 300ms ease; }
+.progress-ring { display: grid; place-items: center; width: 66px; height: 66px; border: 5px solid var(--paper-deep); border-top-color: var(--cobalt); border-right-color: var(--cobalt); border-radius: 50%; color: var(--cobalt); font-family: "DM Mono", monospace; font-size: 12px; transition: transform 300ms ease; animation: ring-in 700ms 420ms cubic-bezier(0.22, 1, 0.36, 1) both; }
 .progress-ring.is-complete { border-color: var(--coral); color: var(--coral); }
-.workspace { overflow: hidden; border: 1px solid var(--line); background: rgba(255, 253, 249, 0.72); box-shadow: var(--shadow); }
+.workspace { overflow: hidden; border: 1px solid var(--line); background: rgba(255, 253, 249, 0.72); box-shadow: var(--shadow); animation: slide-in 650ms 260ms cubic-bezier(0.22, 1, 0.36, 1) both; }
 .task-form { display: flex; gap: 12px; padding: 18px; background: var(--ink); }
 .task-form input { min-width: 0; flex: 1; border: 0; outline: 0; padding: 15px 17px; color: var(--ink); background: var(--white); border-radius: 2px; font-size: 14px; }
 .task-form input::placeholder { color: #9c9f9d; }
@@ -62,7 +62,7 @@ h1 em { color: var(--cobalt); font-family: Georgia, serif; font-weight: 400; let
 .check-button, .delete-button { display: grid; place-items: center; border: 0; background: transparent; }
 .check-button { width: 22px; height: 22px; border: 1.5px solid var(--muted); border-radius: 50%; color: transparent; transition: all 160ms ease; }
 .check-button:hover { border-color: var(--cobalt); }
-.task-item.is-complete .check-button { border-color: var(--coral); color: var(--white); background: var(--coral); }
+.task-item.is-complete .check-button { border-color: var(--coral); color: var(--white); background: var(--coral); animation: check-pop 360ms cubic-bezier(0.22, 1.4, 0.36, 1) both; }
 .check-button::after { content: "✓"; font-size: 13px; }
 .task-copy { min-width: 0; font-size: 14px; line-height: 1.45; overflow-wrap: anywhere; }
 .task-item.is-complete .task-copy { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--coral); }
@@ -74,10 +74,19 @@ h1 em { color: var(--cobalt); font-family: Georgia, serif; font-weight: 400; let
 .empty-icon { display: block; margin-bottom: 14px; color: var(--coral); font-size: 22px; }
 .empty-state h2 { margin: 0 0 7px; font-size: 18px; }
 .empty-state p { margin: 0; color: var(--muted); font-size: 13px; }
-.footer-note { justify-content: flex-start; gap: 8px; margin-top: 24px; color: var(--muted); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer-note { justify-content: flex-start; gap: 8px; margin-top: 24px; color: var(--muted); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; animation: fade-in 700ms 600ms ease both; }
 .footer-dot { width: 7px; height: 7px; background: var(--coral); border-radius: 50%; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@keyframes page-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slide-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes ring-in { from { opacity: 0; transform: scale(0.7) rotate(-25deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
+@keyframes check-pop { 0% { transform: scale(0.7); } 65% { transform: scale(1.18); } 100% { transform: scale(1); } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes reveal { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
 
 @media (max-width: 600px) {
   .app-shell { width: min(100% - 28px, 540px); padding-top: 20px; }
